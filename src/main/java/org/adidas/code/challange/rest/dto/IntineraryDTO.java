@@ -6,6 +6,7 @@ public class IntineraryDTO {
 
 	private LinkedList<CityDTO> path = new LinkedList<CityDTO>();
 	private int sumPathWeight;
+	private String message = null;
 
 	public IntineraryDTO() {
 	}
@@ -26,9 +27,17 @@ public class IntineraryDTO {
 		this.sumPathWeight = sumPathWeight;
 	}
 
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
 	@Override
 	public String toString() {
-		return "IntineraryDTO [path=" + path + ", sumPathWeight=" + sumPathWeight + "]";
+		return "IntineraryDTO [path=" + path + ", sumPathWeight=" + sumPathWeight + ", message=" + message + "]";
 	}
 
 }
