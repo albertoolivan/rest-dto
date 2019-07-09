@@ -1,5 +1,6 @@
 package org.adidas.code.challange.rest.dto;
 
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 
 public class IntineraryDTO {
@@ -7,6 +8,8 @@ public class IntineraryDTO {
 	private LinkedList<CityDTO> path = new LinkedList<CityDTO>();
 	private int sumPathWeight;
 	private String message = null;
+	private LocalDateTime departureTime;
+	private LocalDateTime arrivalTime;
 
 	public IntineraryDTO() {
 	}
@@ -35,10 +38,28 @@ public class IntineraryDTO {
 		this.message = message;
 	}
 
+	public LocalDateTime getDepartureTime() {
+		return departureTime;
+	}
+
+	public void setDepartureTime(LocalDateTime departureTime) {
+		this.departureTime = departureTime;
+	}
+
+	public LocalDateTime getArrivalTime() {
+		return arrivalTime;
+	}
+
+	public void setArrivalTime(LocalDateTime arrivalTime) {
+		this.arrivalTime = arrivalTime;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((arrivalTime == null) ? 0 : arrivalTime.hashCode());
+		result = prime * result + ((departureTime == null) ? 0 : departureTime.hashCode());
 		result = prime * result + ((message == null) ? 0 : message.hashCode());
 		result = prime * result + ((path == null) ? 0 : path.hashCode());
 		result = prime * result + sumPathWeight;
@@ -54,6 +75,16 @@ public class IntineraryDTO {
 		if (getClass() != obj.getClass())
 			return false;
 		IntineraryDTO other = (IntineraryDTO) obj;
+		if (arrivalTime == null) {
+			if (other.arrivalTime != null)
+				return false;
+		} else if (!arrivalTime.equals(other.arrivalTime))
+			return false;
+		if (departureTime == null) {
+			if (other.departureTime != null)
+				return false;
+		} else if (!departureTime.equals(other.departureTime))
+			return false;
 		if (message == null) {
 			if (other.message != null)
 				return false;
@@ -71,7 +102,8 @@ public class IntineraryDTO {
 
 	@Override
 	public String toString() {
-		return "IntineraryDTO [path=" + path + ", sumPathWeight=" + sumPathWeight + ", message=" + message + "]";
+		return "IntineraryDTO [path=" + path + ", sumPathWeight=" + sumPathWeight + ", message=" + message
+				+ ", departureTime=" + departureTime + ", arrivalTime=" + arrivalTime + "]";
 	}
 
 }
