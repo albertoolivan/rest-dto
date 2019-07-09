@@ -1,4 +1,4 @@
-# ch.rest.dto
+# rest-dto
 
 1) Pre requirement - install rest.dto-1.0.0-SNAPSHOT.jar 
 
