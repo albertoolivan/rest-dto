@@ -23,7 +23,7 @@ public class CityDTOTest {
 		cityDTO5.setDistanceList(cityDistanceDTOList1);
 		// test
 		assertEquals("CityDTO [id=null, name=null, distanceList=[]]", cityDTO1.toString());
-		assertEquals("CityDTO [id=id, name=MAD, distanceList=[]]", cityDTO3.toString());
+		assertEquals("CityDTO [id=MAD, name=Madrid, distanceList=[]]", cityDTO3.toString());
 		assertEquals(cityDTO1, cityDTO2);
 		assertEquals(cityDTO3, cityDTO4);
 		assertNotEquals(cityDTO1, cityDTO3);
