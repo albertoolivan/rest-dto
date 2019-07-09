@@ -25,8 +25,10 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	
 	<build>
 		<plugins>
+		
 			<!-- COMPILER -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -37,6 +39,33 @@
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
+			
+			<!-- jacoco test coverage report 
+			/target/site/jacoco/index.html
+			-->
+		    <plugin>
+		      	<groupId>org.jacoco</groupId>
+		      	<artifactId>jacoco-maven-plugin</artifactId>
+		      	<version>0.8.2</version>
+		      	<configuration>
+		        	<append>true</append>
+		     	 </configuration>
+		      	<executions>
+		        	<execution>
+		          		<goals>
+		           			<goal>prepare-agent</goal>
+		          		</goals>
+		        	</execution>
+		        <execution>
+		          	<id>post-unit-test</id>
+		          	<phase>test</phase>
+		          	<goals>
+		            	<goal>report</goal>
+		          	</goals>
+		        </execution>
+		      </executions>
+		    </plugin>
+		    
 		</plugins>
 	</build>
 
