@@ -11,7 +11,7 @@ import org.junit.Test;
 public class CityDTOTest {
 	
 	@Test
-	public void compareCityDistanceDTOTest() {
+	public void compareCityDTOTest() {
 		// prepare
 		CityDTO cityDTO1 = new CityDTO();
 		CityDTO cityDTO2 = new CityDTO();
@@ -22,6 +22,8 @@ public class CityDTOTest {
 		cityDistanceDTOList1.add(new CityDistanceDTO("id", "MAD", "Madrid", "PAR", "Paris", 1500));
 		cityDTO5.setDistanceList(cityDistanceDTOList1);
 		// test
+		assertEquals("CityDTO [id=null, name=null, distanceList=[]]", cityDTO1.toString());
+		assertEquals("CityDTO [id=id, name=MAD, distanceList=[]]", cityDTO3.toString());
 		assertEquals(cityDTO1, cityDTO2);
 		assertEquals(cityDTO3, cityDTO4);
 		assertNotEquals(cityDTO1, cityDTO3);
