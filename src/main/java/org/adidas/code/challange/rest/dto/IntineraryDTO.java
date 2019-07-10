@@ -10,6 +10,7 @@ public class IntineraryDTO {
 	private String message = null;
 	private LocalDateTime departureTime;
 	private LocalDateTime arrivalTime;
+	private String durationTime;
 
 	public IntineraryDTO() {
 	}
@@ -54,12 +55,21 @@ public class IntineraryDTO {
 		this.arrivalTime = arrivalTime;
 	}
 
+	public String getDurationTime() {
+		return durationTime;
+	}
+
+	public void setDurationTime(String durationTime) {
+		this.durationTime = durationTime;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((arrivalTime == null) ? 0 : arrivalTime.hashCode());
 		result = prime * result + ((departureTime == null) ? 0 : departureTime.hashCode());
+		result = prime * result + ((durationTime == null) ? 0 : durationTime.hashCode());
 		result = prime * result + ((message == null) ? 0 : message.hashCode());
 		result = prime * result + ((path == null) ? 0 : path.hashCode());
 		result = prime * result + sumPathWeight;
@@ -85,6 +95,11 @@ public class IntineraryDTO {
 				return false;
 		} else if (!departureTime.equals(other.departureTime))
 			return false;
+		if (durationTime == null) {
+			if (other.durationTime != null)
+				return false;
+		} else if (!durationTime.equals(other.durationTime))
+			return false;
 		if (message == null) {
 			if (other.message != null)
 				return false;
@@ -103,7 +118,8 @@ public class IntineraryDTO {
 	@Override
 	public String toString() {
 		return "IntineraryDTO [path=" + path + ", sumPathWeight=" + sumPathWeight + ", message=" + message
-				+ ", departureTime=" + departureTime + ", arrivalTime=" + arrivalTime + "]";
+				+ ", departureTime=" + departureTime + ", arrivalTime=" + arrivalTime + ", durationTime=" + durationTime
+				+ "]";
 	}
 
 }
